@@ -1,0 +1,146 @@
+@use '../abstracts/variables' as variables;
+@use '../abstracts/mixins' as mixins;
+
+.products-page {
+  padding-block: 4rem 6rem;
+}
+
+.products-page__header {
+  max-width: 46rem;
+  margin-bottom: 3rem;
+
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  > p:last-child {
+    max-width: 38rem;
+    margin-bottom: 0;
+  }
+}
+
+.product-toolbar {
+  display: grid;
+  margin-bottom: 3rem;
+  padding: 1.25rem;
+  gap: 1.5rem;
+  background-color: variables.$color-soft-pink;
+  border-radius: 1.25rem;
+}
+
+.product-search {
+  display: grid;
+  gap: 0.5rem;
+
+  label {
+    color: variables.$color-burgundy;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  input {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid transparent;
+    color: variables.$color-text;
+    background-color: variables.$color-white;
+    border-radius: 999px;
+    outline: none;
+
+    &:focus {
+      border-color: variables.$color-burgundy;
+      box-shadow: 0 0 0 3px rgba(101, 6, 38, 0.1);
+    }
+  }
+}
+
+.product-filters {
+  > p {
+    margin-bottom: 0.5rem;
+    color: variables.$color-burgundy;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+.product-filters__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.product-filter {
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid variables.$color-burgundy;
+  color: variables.$color-burgundy;
+  background-color: transparent;
+  border-radius: 999px;
+  font-weight: 500;
+  transition:
+    color variables.$transition-default,
+    background-color variables.$transition-default;
+
+  &:hover,
+  &:focus-visible,
+  &--active {
+    color: variables.$color-white;
+    background-color: variables.$color-burgundy;
+  }
+}
+
+.products-results__heading {
+  display: flex;
+  margin-bottom: 1.5rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+
+  h2,
+  p {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    color: variables.$color-burgundy;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+.products-empty {
+  padding: 4rem 1.5rem;
+  background-color: variables.$color-cream;
+  border-radius: 1.25rem;
+  text-align: center;
+
+  h2 {
+    color: variables.$color-burgundy;
+  }
+
+  button {
+    min-height: 2.75rem;
+    padding: 0.65rem 1.25rem;
+    border: 0;
+    color: variables.$color-white;
+    background-color: variables.$color-burgundy;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+}
+
+@include mixins.tablet {
+  .products-page {
+    padding-block: 6rem 8rem;
+  }
+
+  .product-toolbar {
+    padding: 1.75rem;
+    grid-template-columns: minmax(16rem, 1fr) 1.5fr;
+    align-items: end;
+  }
+}

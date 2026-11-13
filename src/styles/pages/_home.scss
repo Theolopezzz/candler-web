@@ -1,0 +1,344 @@
+@use '../abstracts/variables' as variables;
+@use '../abstracts/mixins' as mixins;
+
+.home {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.home > section:not(
+  .home-banner,
+  .brand-hero,
+  .home-contact
+) {
+  @include mixins.container;
+}
+
+.home-banner {
+  width: 100%;
+  height: clamp(22rem, 70vw, 34rem);
+  overflow: hidden;
+  background-color: variables.$color-soft-pink;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.brand-hero {
+  @include mixins.container;
+
+  display: grid;
+  padding-block: 4rem;
+  gap: 3rem;
+}
+
+.brand-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    max-width: 11ch;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.brand-hero__description {
+  max-width: 34rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.brand-hero__visual {
+  position: relative;
+  min-height: 31rem;
+  overflow: hidden;
+  background-color: variables.$color-blue-gray;
+  border-radius: 1.5rem;
+}
+
+.brand-hero__card {
+  position: absolute;
+  display: flex;
+  width: 9.5rem;
+  aspect-ratio: 0.78;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5rem 5rem 1.25rem 1.25rem;
+  font-family: variables.$font-display;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 0.85;
+  box-shadow: 0 1rem 2rem rgba(101, 6, 38, 0.16);
+}
+
+.brand-hero__card--pink {
+  bottom: 2rem;
+  left: 1.25rem;
+  z-index: 4;
+  color: variables.$color-burgundy;
+  background-color: variables.$color-soft-pink;
+  transform: rotate(-9deg);
+}
+
+.brand-hero__card--yellow {
+  top: 2rem;
+  right: 1.25rem;
+  z-index: 2;
+  color: variables.$color-burgundy;
+  background-color: variables.$color-cream;
+  transform: rotate(8deg);
+}
+
+.brand-hero__card--blue {
+  top: 3.5rem;
+  left: 1rem;
+  z-index: 1;
+  color: variables.$color-burgundy;
+  background-color: variables.$color-blue-gray;
+  border: 1px solid rgba(101, 6, 38, 0.12);
+  transform: rotate(-3deg);
+}
+
+.brand-hero__card--burgundy {
+  right: 1rem;
+  bottom: 1.5rem;
+  z-index: 3;
+  color: variables.$color-cream;
+  background-color: variables.$color-burgundy;
+  transform: rotate(5deg);
+}
+.button {
+  display: inline-flex;
+  min-height: 3rem;
+  padding: 0.75rem 1.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 500;
+  transition:
+    color variables.$transition-default,
+    background-color variables.$transition-default,
+    border-color variables.$transition-default,
+    transform variables.$transition-default;
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.1rem);
+  }
+}
+
+.button--primary {
+  color: variables.$color-white;
+  background-color: variables.$color-burgundy;
+}
+
+.button--secondary {
+  color: variables.$color-burgundy;
+  border-color: variables.$color-burgundy;
+  background-color: transparent;
+}
+
+.button--light {
+  color: variables.$color-burgundy;
+  background-color: variables.$color-cream;
+}
+
+.home-intro {
+  padding-block: 5rem;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1.25rem;
+    color: variables.$color-burgundy;
+    font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1;
+  }
+
+  > p:last-child {
+    max-width: 42rem;
+    margin-inline: auto;
+    margin-bottom: 0;
+  }
+}
+
+.featured-products {
+  padding-block: 2rem 5rem;
+}
+
+.section-heading {
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+
+  h2 {
+    margin-bottom: 0;
+    color: variables.$color-burgundy;
+    font-size: clamp(1.75rem, 7vw, 3rem);
+  }
+}
+
+.section-heading__link {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.35rem;
+  color: variables.$color-burgundy;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  svg {
+    width: 1rem;
+  }
+}
+
+.brand-values {
+  padding-block: 5rem;
+}
+
+.brand-values__heading {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+
+  h2 {
+    margin-bottom: 0;
+    color: variables.$color-burgundy;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1;
+  }
+}
+
+.brand-values__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.brand-value {
+  padding: 2rem;
+  background-color: variables.$color-soft-pink;
+  border-radius: 1.25rem;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 2rem;
+    color: variables.$color-burgundy;
+    stroke-width: 1.5;
+  }
+
+  h3 {
+    margin-bottom: 0.75rem;
+    color: variables.$color-burgundy;
+    font-size: 1.35rem;
+  }
+
+  p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+
+  &:nth-child(2) {
+    background-color: variables.$color-cream;
+  }
+
+  &:nth-child(3) {
+    background-color: variables.$color-blue-gray;
+  }
+}
+
+.home-contact {
+  display: flex;
+  padding: 4rem 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  color: variables.$color-cream;
+  background-color: variables.$color-burgundy;
+
+  .section-eyebrow {
+    color: variables.$color-cream;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    color: variables.$color-cream;
+    font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1;
+  }
+
+  p:last-child {
+    max-width: 34rem;
+    margin-bottom: 0;
+  }
+}
+
+@include mixins.tablet {
+
+    .home-banner {
+    height: clamp(28rem, 45vw, 42rem);
+  }
+
+  .brand-hero {
+    min-height: 38rem;
+    padding-block: 6rem;
+    grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .brand-hero__visual {
+    min-height: 32rem;
+  }
+
+  .brand-hero__card {
+    width: 12rem;
+    padding: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .brand-hero__card--pink {
+    left: 3rem;
+  }
+
+  .brand-hero__card--yellow {
+    right: 3rem;
+  }
+
+  .brand-hero__card--blue {
+    left: 4rem;
+  }
+
+  .brand-hero__card--burgundy {
+    right: 4rem;
+  }
+
+  .brand-values__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .home-contact {
+    padding: 5rem max(2rem, calc((100vw - 1200px) / 2));
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .home-contact .button {
+    flex-shrink: 0;
+  }
+}

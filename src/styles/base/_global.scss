@@ -1,0 +1,47 @@
+@use '../abstracts/variables' as variables;
+@use '../abstracts/mixins' as mixins;
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  color: variables.$color-text;
+  background-color: variables.$color-background;
+  font-family: variables.$font-primary;
+  font-weight: 500;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  @include mixins.container;
+
+  padding-block: 3rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: variables.$font-display;
+  font-weight: 700;
+}
+
+h1 {
+  color: variables.$color-burgundy;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+}
+
+p {
+  font-weight: 400;
+}

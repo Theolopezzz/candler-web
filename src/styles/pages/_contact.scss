@@ -1,0 +1,138 @@
+@use '../abstracts/variables' as variables;
+@use '../abstracts/mixins' as mixins;
+
+.contact-page {
+  padding-block: 4rem 6rem;
+}
+
+.contact-page__header {
+  max-width: 42rem;
+  margin-bottom: 3rem;
+
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contact-layout {
+  display: grid;
+  gap: 3rem;
+}
+
+.contact-options {
+  display: grid;
+  gap: 1rem;
+
+  article {
+    display: flex;
+    padding: 1.5rem;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: variables.$color-soft-pink;
+    border-radius: 1.25rem;
+
+    &:nth-child(2) {
+      background-color: variables.$color-cream;
+    }
+
+    &:nth-child(3) {
+      background-color: variables.$color-blue-gray;
+    }
+  }
+
+  > article > svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    color: variables.$color-burgundy;
+    stroke-width: 1.5;
+  }
+
+  h2 {
+    margin-bottom: 0.35rem;
+    color: variables.$color-burgundy;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
+  }
+
+  a,
+  span {
+    color: variables.$color-burgundy;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.contact-form-section {
+  padding: 2rem;
+  background-color: variables.$color-cream;
+  border-radius: 1.5rem;
+
+  h2 {
+    margin-bottom: 2rem;
+    color: variables.$color-burgundy;
+    font-size: clamp(1.75rem, 7vw, 2.75rem);
+    line-height: 1;
+  }
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.5rem;
+
+  label {
+    color: variables.$color-burgundy;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid transparent;
+    color: variables.$color-text;
+    background-color: variables.$color-white;
+    border-radius: 0.85rem;
+    outline: none;
+    resize: vertical;
+
+    &:focus {
+      border-color: variables.$color-burgundy;
+      box-shadow: 0 0 0 3px rgba(101, 6, 38, 0.1);
+    }
+  }
+}
+
+@include mixins.tablet {
+  .contact-page {
+    padding-block: 6rem 8rem;
+  }
+
+  .contact-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 4rem;
+  }
+
+  .contact-form-section {
+    padding: 3rem;
+  }
+}

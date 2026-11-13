@@ -1,0 +1,228 @@
+@use '../abstracts/variables' as variables;
+@use '../abstracts/mixins' as mixins;
+
+.product-detail,
+.product-not-found {
+  padding-block: 2rem 6rem;
+}
+
+.product-detail__back,
+.product-not-found a {
+  display: inline-flex;
+  margin-bottom: 2rem;
+  align-items: center;
+  gap: 0.4rem;
+  color: variables.$color-burgundy;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.product-detail__main {
+  display: grid;
+  gap: 3rem;
+}
+
+.product-detail__image {
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.5rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.product-detail__image--pink {
+  background-color: variables.$color-soft-pink;
+}
+
+.product-detail__image--blue {
+  background-color: variables.$color-blue-gray;
+}
+
+.product-detail__image--yellow {
+  background-color: variables.$color-cream;
+}
+
+.product-detail__image--burgundy {
+  background-color: variables.$color-burgundy;
+}
+
+.product-detail__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.product-detail__description {
+  max-width: 35rem;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.product-detail__notes {
+  margin-bottom: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: variables.$color-burgundy;
+    font-size: 1.25rem;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  li {
+    padding: 0.5rem 0.85rem;
+    color: variables.$color-burgundy;
+    background-color: variables.$color-soft-pink;
+    border-radius: 999px;
+    font-size: 0.8rem;
+  }
+}
+
+.product-detail__purchase {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.product-detail__pricing {
+  display: flex;
+  margin-bottom: 0.25rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.product-detail__price {
+  color: variables.$color-burgundy;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.product-detail__original-price {
+  color: rgba(48, 40, 43, 0.55);
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.product-detail__stock {
+  margin-bottom: 1rem;
+  color: variables.$color-burgundy;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.product-detail__stock--last {
+  padding: 0.5rem 0.75rem;
+  justify-self: start;
+  background-color: variables.$color-soft-pink;
+  border-radius: 999px;
+}
+
+.product-detail__purchase .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.product-detail__care {
+  display: grid;
+  margin-top: 5rem;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: variables.$color-cream;
+  border-radius: 1.5rem;
+
+  h2 {
+    margin-bottom: 0;
+    color: variables.$color-burgundy;
+    font-size: clamp(2rem, 7vw, 3.25rem);
+  }
+
+  ul {
+    display: grid;
+    gap: 1rem;
+    counter-reset: care-step;
+  }
+
+  li {
+    position: relative;
+    padding-left: 2.5rem;
+    font-weight: 400;
+    counter-increment: care-step;
+
+    &::before {
+      position: absolute;
+      top: -0.15rem;
+      left: 0;
+      display: grid;
+      width: 1.75rem;
+      height: 1.75rem;
+      place-items: center;
+      color: variables.$color-white;
+      background-color: variables.$color-burgundy;
+      border-radius: 50%;
+      content: counter(care-step);
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.product-not-found {
+  min-height: 60vh;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+@include mixins.tablet {
+  .product-detail {
+    padding-block: 3rem 8rem;
+  }
+
+  .product-detail__main {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .product-detail__purchase {
+    grid-template-columns: repeat(2, max-content);
+  }
+
+  .product-detail__price {
+    grid-column: 1 / -1;
+  }
+
+  .product-detail__care {
+    padding: 3rem;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    gap: 4rem;
+  }
+  
+  .product-detail__image {
+  width: 100%;
+  max-width: 34rem;
+  }
+}

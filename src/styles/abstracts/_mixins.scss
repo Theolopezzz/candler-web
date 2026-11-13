@@ -1,0 +1,19 @@
+@use './variables' as variables;
+@use './breakpoints' as breakpoints;
+
+@mixin container {
+  width: min(100% - 2rem, variables.$container-max-width);
+  margin-inline: auto;
+}
+
+@mixin tablet {
+  @media (min-width: breakpoints.$breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: breakpoints.$breakpoint-desktop) {
+    @content;
+  }
+}

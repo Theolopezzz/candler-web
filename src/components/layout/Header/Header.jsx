@@ -74,13 +74,13 @@ function Header() {
             <Search />
           </button>
 
-          <Link
+          {/* <Link
             className="header__action"
             to="/login"
             aria-label="Ingresar a mi cuenta"
           >
             <UserRound />
-          </Link>
+          </Link> */}
 
           <Link
             className="header__action header__cart"

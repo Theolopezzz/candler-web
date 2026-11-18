@@ -2,16 +2,15 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import {
   Menu,
-  Search,
   ShoppingBag,
-  UserRound,
   X,
 } from 'lucide-react'
 import useCart from '../../../hooks/useCart'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const {totalItems} = useCart()
+  const {totalItems, openCart} = useCart()
+  
 
   function closeMenu() {
     setIsMenuOpen(false)
@@ -67,34 +66,22 @@ function Header() {
 
         <div className="header__actions">
           <button
-            className="header__action"
-            type="button"
-            aria-label="Buscar productos"
-          >
-            <Search />
-          </button>
-
-          {/* <Link
-            className="header__action"
-            to="/login"
-            aria-label="Ingresar a mi cuenta"
-          >
-            <UserRound />
-          </Link> */}
-
-          <Link
             className="header__action header__cart"
-            to="/carrito"
-            aria-label={`Ver carrito, ${totalItems} productos`}
+            type="button"
+            aria-label={`Abrir carrito, ${totalItems} productos`}
+            onClick={openCart}
           >
-            <ShoppingBag />
+            <ShoppingBag aria-hidden="true" />
 
             {totalItems > 0 && (
-              <span className="header__cart-count" aria-hidden="true">
+              <span
+                className="header__cart-count"
+                aria-hidden="true"
+              >
                 {totalItems > 99 ? '99+' : totalItems}
               </span>
             )}
-          </Link>
+          </button>
         </div>
       </div>
     </header>

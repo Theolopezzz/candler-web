@@ -237,9 +237,6 @@
     margin-bottom: 1rem;
   }
 
-  > p:not(.section-eyebrow) {
-    margin-bottom: 2rem;
-  }
 }
 
 .cart-summary__form {
@@ -306,6 +303,11 @@
   font-size: 0.78rem;
   font-weight: 500;
   line-height: 1.4;
+}
+
+.cart-summary__continue {
+  width: 100%;
+  margin-top: 0.75rem;
 }
 
 .cart-item__price {

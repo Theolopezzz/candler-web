@@ -23,43 +23,9 @@ function Home() {
           alt="Caja abierta con tarjeta y stickers de resivimiento a club candler"
         />
       </section>
-      <section className="brand-hero">
-        <div className="brand-hero__content">
-          <p className="section-eyebrow">Welcome to the Candler Club</p>
-
-          <h1>It’s not a candle. It’s a Candler.</h1>
-
-          <p className="brand-hero__description">
-            Aromas intensos, estética que transforma tus espacios y una
-            forma más consciente de disfrutar lo cotidiano.
-          </p>
-        </div>
-
-        <div className="brand-hero__visual" aria-hidden="true">
-          <div className="brand-hero__card brand-hero__card--pink">
-            <span>sweet</span>
-            <span>vanilla</span>
-          </div>
-
-          <div className="brand-hero__card brand-hero__card--yellow">
-            <span>lemon</span>
-            <span>glaze</span>
-          </div>
-
-          <div className="brand-hero__card brand-hero__card--blue">
-            <span>wild</span>
-            <span>pitanga</span>
-          </div>
-
-          <div className="brand-hero__card brand-hero__card--burgundy">
-            <span>morning</span>
-            <span>brew</span>
-          </div>
-        </div>
-      </section>
 
       <section className="home-intro">
-        <p className="section-eyebrow">Candler Club</p>
+
 
         <h2>Romantizar tu vida también es cuidarte.</h2>
 
@@ -73,8 +39,7 @@ function Home() {
       <section className="featured-products">
         <div className="section-heading">
           <div>
-            <p className="section-eyebrow">Nuestros aromas</p>
-            <h2>Encontrá tu favorita.</h2>
+            <h2>Encontrá tu aroma</h2>
           </div>
 
           <Link className="section-heading__link" to="/productos">
@@ -85,14 +50,13 @@ function Home() {
 
         <div className="product-grid">
           {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} showDescription={false} />
           ))}
         </div>
       </section>
 
       <section className="brand-values">
         <div className="brand-values__heading">
-          <p className="section-eyebrow">Lo esencial</p>
           <h2>Cuidamos lo que forma parte de tu rutina.</h2>
         </div>
 

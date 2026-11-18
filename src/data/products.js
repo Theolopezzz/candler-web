@@ -14,7 +14,7 @@ const products = [
     featured: true,
     price: 20000,
     originalPrice: null,
-    stock: 1,
+    stock: 0
   },
   {
     id: 2,

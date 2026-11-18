@@ -6,8 +6,6 @@ function About() {
     <main className="about-page">
       <section className="about-hero">
         <div className="about-hero__content">
-          <p className="section-eyebrow">Sobre Candler</p>
-
           <h1>It’s not a candle. It’s a Candler.</h1>
 
           <p>
@@ -22,7 +20,7 @@ function About() {
 
         <div className="about-hero__visual">
           <img
-            src="/images/gallery/about-candler.jpg"
+            src="/images/banners/banner-2.PNG"
             alt="Vela Candler como parte de la decoración de un espacio"
           />
         </div>
@@ -30,7 +28,6 @@ function About() {
 
       <section className="about-story">
         <div>
-          <p className="section-eyebrow">Candler Club</p>
           <h2>Una marca para quienes eligen los detalles.</h2>
         </div>
 
@@ -86,24 +83,6 @@ function About() {
         </article>
       </section>
 
-      <section className="about-club">
-        <div className="about-club__symbol" aria-hidden="true">
-          <img
-            src="/images/brand/candler-logo-rosa.svg"
-            alt=""
-          />
-        </div>
-
-        <div>
-          <p className="section-eyebrow">Welcome to the club</p>
-          <h2>Romantizar lo cotidiano también es parte del plan.</h2>
-
-          <p>
-            Elegir un aroma, encender una vela y transformar un espacio
-            simple en uno propio. Eso también es Candler Club.
-          </p>
-        </div>
-      </section>
     </main>
   )
 }

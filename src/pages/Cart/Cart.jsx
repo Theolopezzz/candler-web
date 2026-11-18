@@ -25,7 +25,7 @@ function Cart() {
   } = useCart()
 
   const [customerEmail, setCustomerEmail] = useState('')
-  const [acceptsMarketing, setAcceptsMarketing] = useState(false)
+  const [acceptsMarketing, setAcceptsMarketing] = useState(true)
   const [checkoutError, setCheckoutError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const cartTotal = cartItems.reduce(
@@ -75,7 +75,6 @@ function Cart() {
         <div className="cart-empty">
           <ShoppingBag aria-hidden="true" />
 
-          <p className="section-eyebrow">Tu selección</p>
           <h1>Tu carrito está vacío.</h1>
 
           <p>
@@ -95,13 +94,8 @@ function Cart() {
 
   return (
     <main className="cart-page">
-      <Link className="cart-page__back" to="/productos">
-        <ArrowLeft aria-hidden="true" />
-        Seguir viendo productos
-      </Link>
 
       <header className="cart-page__header">
-        <p className="section-eyebrow">Tu selección</p>
         <h1>Carrito</h1>
 
         <p>
@@ -196,7 +190,6 @@ function Cart() {
         </section>
 
         <aside className="cart-summary">
-          <p className="section-eyebrow">Resumen</p>
           <h2>Tu pedido</h2>
 
           <dl>
@@ -281,6 +274,15 @@ function Cart() {
                 ? 'Guardando...'
                 : 'Continuar por WhatsApp'}
             </button>
+            
+            <Link
+              className="button button--secondary cart-summary__continue"
+              to="/productos"
+            >
+              <Plus aria-hidden="true" />
+              Agregar más productos
+            </Link>
+
           </form>
         </aside>
       </div>

@@ -1,17 +1,26 @@
-import { ArrowLeft, MessageCircle, ShoppingBag } from 'lucide-react'
+import { useState } from 'react'
+import {
+  ArrowLeft,
+  MessageCircle,
+  Minus,
+  Plus,
+  ShoppingBag,
+} from 'lucide-react'
 import { Link, useParams } from 'react-router'
 
 import products from '../../data/products'
 import useCart from '../../hooks/useCart'
 import formatPrice from '../../utils/formatPrice'
+import { getGeneralWhatsAppUrl } from '../../services/whatsapp'
 
 function ProductDetail() {
   const { productSlug } = useParams()
   const {addItem} = useCart()
-
+  const [quantity, setQuantity] = useState(1)
   const product = products.find(
     (currentProduct) => currentProduct.slug === productSlug,
   )
+  
 
   if (!product) {
     return (
@@ -37,17 +46,27 @@ function ProductDetail() {
 
       <section className="product-detail__main">
         <div
-          className={`product-detail__image product-detail__image--${product.color}`}
+          className={`product-detail__image ${
+            product.stock === 0
+              ? 'product-detail__image--unavailable'
+              : ''
+          }`}
         >
           <img
             src={product.image}
             alt={`Vela aromática ${product.name} de Candler`}
           />
+
+          {product.stock === 0 && (
+            <span className="product-detail__stock-overlay">
+              Sin stock
+            </span>
+          )}
         </div>
 
         <div className="product-detail__information">
-          <p className="section-eyebrow">
-            Familia olfativa {product.olfactoryFamily}
+          <p className="product-card__family">
+            Familia olfativa: {product.olfactoryFamily}
           </p>
 
           <h1>{product.name}</h1>
@@ -67,44 +86,90 @@ function ProductDetail() {
           </div>
 
           <div className="product-detail__purchase">
-            <div className="product-detail__pricing">
-              {product.originalPrice && (
-                <span className="product-detail__original-price">
-                  {formatPrice(product.originalPrice)}
+            <div className="product-detail__price-row">
+              <div className="product-detail__pricing">
+                {product.originalPrice && (
+                  <span className="product-detail__original-price">
+                    {formatPrice(product.originalPrice)}
+                  </span>
+                )}
+
+                <span className="product-detail__price">
+                  {formatPrice(product.price)}
+                </span>
+              </div>
+
+              {product.stock === 1 && (
+                <span className="product-detail__stock product-detail__stock--last">
+                  ¡Última unidad disponible!
                 </span>
               )}
 
-              <span className="product-detail__price">
-                {formatPrice(product.price)}
-              </span>
+              {product.stock === 0 && (
+                <span className="product-detail__stock">
+                  Producto sin stock
+                </span>
+              )}
             </div>
 
-            {product.stock === 1 && (
-              <p className="product-detail__stock product-detail__stock--last">
-                ¡Última unidad disponible!
-              </p>
-            )}
+            <div className="product-detail__add-row">
+              {product.stock > 0 && (
+                <div
+                  className="quantity-selector"
+                  aria-label={`Cantidad de ${product.name}`}
+                >
+                  <button
+                    type="button"
+                    disabled={quantity <= 1}
+                    aria-label="Reducir cantidad"
+                    onClick={() =>
+                      setQuantity((current) =>
+                        Math.max(1, current - 1),
+                      )
+                    }
+                  >
+                    <Minus aria-hidden="true" />
+                  </button>
 
-            {product.stock === 0 && (
-              <p className="product-detail__stock">
-                Producto sin stock
-              </p>
-            )}
+                  <span aria-live="polite">{quantity}</span>
 
-          <button
-            className="button button--primary"
-            type="button"
-            disabled={product.stock === 0}
-            onClick={() => addItem(product)}
-          >
-            <ShoppingBag aria-hidden="true" />
+                  <button
+                    type="button"
+                    disabled={quantity >= product.stock}
+                    aria-label="Aumentar cantidad"
+                    onClick={() =>
+                      setQuantity((current) =>
+                        Math.min(product.stock, current + 1),
+                      )
+                    }
+                  >
+                    <Plus aria-hidden="true" />
+                  </button>
+                </div>
+              )}
 
-            {product.stock === 0
-              ? 'Sin stock'
-              : 'Agregar al carrito'}
-          </button>
+              <button
+                className="button button--primary"
+                type="button"
+                disabled={product.stock === 0}
+                onClick={() => addItem(product, quantity)}
+              >
+                <ShoppingBag aria-hidden="true" />
 
-            <a className="button button--secondary" href="#">
+                {product.stock === 0
+                  ? 'Sin stock'
+                  : 'Agregar al carrito'}
+              </button>
+            </div>
+
+            <a
+              className="button button--secondary product-detail__whatsapp"
+              href={getGeneralWhatsAppUrl(
+                `Hola, quiero consultar por ${product.name}.`,
+              )}
+              target="_blank"
+              rel="noreferrer"
+            >
               <MessageCircle aria-hidden="true" />
               Consultar por WhatsApp
             </a>

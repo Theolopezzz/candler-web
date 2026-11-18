@@ -37,7 +37,6 @@ function Products() {
   return (
     <main className="products-page">
       <header className="products-page__header">
-        <p className="section-eyebrow">Candler Club</p>
 
         <h1>Encontrá tu aroma.</h1>
 

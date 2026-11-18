@@ -35,7 +35,7 @@ function Contact() {
   return (
     <main className="contact-page">
       <header className="contact-page__header">
-        <h1>Contactános</h1>
+        <h1>Contactanos</h1>
 
         <p>
           Consultá por aromas, disponibilidad, pedidos y entregas dentro

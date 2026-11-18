@@ -6,7 +6,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { Link } from 'react-router'
-
+import { getGeneralWhatsAppUrl } from '../../services/whatsapp'
 import ProductCard from '../../components/products/ProductCard/ProductCard'
 import products from '../../data/products.js'
 
@@ -100,14 +100,19 @@ function Home() {
           </p>
         </div>
 
+
         <a
           className="button button--light"
-          href="#"
-          aria-label="Consultar a Candler por WhatsApp"
+          href={getGeneralWhatsAppUrl(
+                `Hola, tengo una consulta sobre Candler`,
+              )}
+              target="_blank"
+              rel="noreferrer"
         >
           <MessageCircle aria-hidden="true" />
           Consultar
         </a>
+        
       </section>
     </main>
   )

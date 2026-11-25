@@ -4,11 +4,13 @@ import {
   Leaf,
   MessageCircle,
   ShieldCheck,
+  RefreshCcw,
 } from 'lucide-react'
 import { Link } from 'react-router'
 import { getGeneralWhatsAppUrl } from '../../services/whatsapp'
 import ProductCard from '../../components/products/ProductCard/ProductCard'
 import products from '../../data/products.js'
+import HomeCarousel from '../../components/common/HomeCarousel/HomeCarousel'
 
 function Home() {
   const featuredProducts = products.filter(
@@ -17,22 +19,17 @@ function Home() {
 
   return (
     <main className="home">
-      <section className="home-banner">
-        <img
-          src="/images/banners/banner-3.PNG"
-          alt="Caja abierta con tarjeta y stickers de resivimiento a club candler"
-        />
-      </section>
+      <HomeCarousel />
 
       <section className="home-intro">
 
 
-        <h2>Romantizar tu vida también es cuidarte.</h2>
+        <h2>It’s not a candle. It’s a Candler.</h2>
 
         <p>
-          Una Candler transforma el espacio, llena la habitación con el
-          aroma que elegiste y convierte un momento cotidiano en algo que
-          querés repetir.
+           Transformá tu espacio, 
+           llená la habitación con el aroma que más te guste 
+           y convertí un momento cotidiano en algo que querés repetir.
         </p>
       </section>
 
@@ -71,21 +68,34 @@ function Home() {
 
           <article className="brand-value">
             <ShieldCheck aria-hidden="true" />
-            <h3>Sin ftalatos</h3>
+            <h3>Phtalate Free</h3>
             <p>
-              Fragancias seleccionadas para disminuir componentes
-              innecesariamente nocivos.
+              Fragancias seleccionadas, libres de ftalatos
             </p>
           </article>
 
           <article className="brand-value">
             <HeartHandshake aria-hidden="true" />
-            <h3>Producción cercana</h3>
+            <h3>Handmade</h3>
             <p>
-              Hechas en Paraná, con atención directa y entregas a
-              coordinar.
+              Velas artesanales, hechas a mano
             </p>
           </article>
+
+          <Link
+            className="brand-value brand-value--refill"
+            to="/refill"
+          >
+            <RefreshCcw aria-hidden="true" />
+
+            <h3>Refill</h3>
+
+            <p>
+              Recargamos tu Candler, con el aroma que prefieras, cada vez que la termines
+            </p>
+
+            <span>Conocer el servicio</span>
+          </Link>
         </div>
       </section>
 

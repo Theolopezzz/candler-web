@@ -11,4 +11,6 @@
 @use './pages/cart';
 @use './pages/about';
 @use './pages/contact';
-@use './components/cart-overlay'
+@use './components/cart-overlay';
+@use './components/home-carousel';
+@use './pages/refill';

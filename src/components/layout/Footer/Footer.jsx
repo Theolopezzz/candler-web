@@ -26,6 +26,10 @@ function Footer() {
             </li>
 
             <li>
+              <Link to="/refill">Recargar</Link>
+            </li>
+
+            <li>
               <Link to="/nosotros">Sobre nosotros</Link>
             </li>
 

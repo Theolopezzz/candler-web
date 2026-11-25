@@ -8,7 +8,7 @@
 }
 
 .home > section:not(
-  .home-banner,
+  .home-carousel,
   .home-contact
 ) {
   @include mixins.container;
@@ -175,6 +175,40 @@
   }
 }
 
+.brand-value--refill {
+  color: variables.$color-cream;
+  background-color: variables.$color-burgundy;
+
+  svg,
+  h3 {
+    color: variables.$color-cream;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  span {
+    margin-top: auto;
+    color: variables.$color-cream;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 1rem 2rem rgba(101, 6, 38, 0.18);
+  }
+
+  &:focus-visible {
+    outline: 2px solid variables.$color-burgundy;
+    outline-offset: 3px;
+  }
+}
+
 .home-contact {
   display: flex;
   padding: 4rem 1rem;
@@ -216,5 +250,16 @@
 
   .home-contact .button {
     flex-shrink: 0;
+  }
+
+  .brand-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@include mixins.desktop {
+  .brand-values__grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

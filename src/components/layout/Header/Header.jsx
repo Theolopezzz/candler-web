@@ -55,6 +55,10 @@ function Header() {
             Productos
           </NavLink>
 
+          <NavLink to="/refill" onClick={closeMenu}>
+            Recarga tu vela
+          </NavLink>
+
           <NavLink to="/nosotros" onClick={closeMenu}>
             Sobre nosotros
           </NavLink>

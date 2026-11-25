@@ -42,6 +42,24 @@ function getCartWhatsAppUrl(cartItems) {
   return getGeneralWhatsAppUrl(message)
 }
 
-export { getCartWhatsAppUrl, getGeneralWhatsAppUrl }
+function getRefillWhatsAppUrl(fragranceName) {
+  const message = fragranceName
+    ? [
+        'Hola, quiero consultar por el servicio de refill de Candler.',
+        '',
+        `Fragancia elegida: ${fragranceName}`,
+        '',
+        'Tengo el envase con sus etiquetas originales y tapa.',
+      ].join('\n')
+    : [
+        'Hola, quiero consultar por el servicio de refill de Candler.',
+        '',
+        'Quisiera conocer la disponibilidad de fragancias.',
+      ].join('\n')
+
+  return getGeneralWhatsAppUrl(message)
+}
+
+export { getCartWhatsAppUrl, getGeneralWhatsAppUrl, getRefillWhatsAppUrl }
 
 

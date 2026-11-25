@@ -12,6 +12,7 @@ import Register from '../pages/Register/Register'
 import Account from '../pages/Account/Account'
 import Cart from '../pages/Cart/Cart'
 import NotFound from '../pages/NotFound/NotFound'
+import Refill from '../pages/Refill/Refill'
 
 function AppRouter() {
   return (
@@ -19,6 +20,7 @@ function AppRouter() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Products />} />
+        <Route path="/refill" element={<Refill />} />
         <Route path="/productos/:productSlug" element={<ProductDetail />} />
         <Route path="/nosotros" element={<About />} />
         <Route path="/contacto" element={<Contact />} />

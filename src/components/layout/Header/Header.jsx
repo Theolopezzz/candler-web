@@ -56,7 +56,7 @@ function Header() {
           </NavLink>
 
           <NavLink to="/refill" onClick={closeMenu}>
-            Recarga tu vela
+            Recargá tu vela
           </NavLink>
 
           <NavLink to="/nosotros" onClick={closeMenu}>

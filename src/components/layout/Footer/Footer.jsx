@@ -26,7 +26,7 @@ function Footer() {
             </li>
 
             <li>
-              <Link to="/refill">Recargar</Link>
+              <Link to="/refill">Recargá tu vela</Link>
             </li>
 
             <li>

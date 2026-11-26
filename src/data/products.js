@@ -14,7 +14,7 @@ const products = [
     featured: true,
     price: 20000,
     originalPrice: null,
-    stock: 0
+    stock: 3
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const products = [
     featured: true,
     price: 20000,
     originalPrice: null,
-    stock: 1,
+    stock: 2,
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ const products = [
     featured: false,
     price: 20000,
     originalPrice: null,
-    stock: 2,
+    stock: 1,
   },
   {
     id: 4,
@@ -82,7 +82,7 @@ const products = [
     featured: true,
     price: 20000,
     originalPrice: null,
-    stock: 2,
+    stock: 1,
   },
   {
     id: 6,
@@ -116,7 +116,7 @@ const products = [
     featured: false,
     price: 20000,
     originalPrice: null,
-    stock: 2,
+    stock: 1,
   },
 ]
 
